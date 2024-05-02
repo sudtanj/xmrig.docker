@@ -8,7 +8,7 @@ RUN wget https://github.com/xmrig/xmrig/archive/refs/tags/v6.21.3.tar.gz; \
     cd xmrig-6.21.3/scripts && ./build_deps.sh; \
     cd xmrig-6.21.3/build; \
     cmake .. -DXMRIG_DEPS=scripts/deps; \
-    make -j $(nproc); \
+    make; \
     cp xmrig /usr/local/bin/xmrig
     
     
