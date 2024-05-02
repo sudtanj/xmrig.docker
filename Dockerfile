@@ -1,6 +1,6 @@
 FROM ubuntu:latest as build
 
-ARG VERSION=1
+ARG VERSION=6.21.3
  
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt install -y build-essential cmake automake libtool autoconf wget	 
