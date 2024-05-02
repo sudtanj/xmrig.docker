@@ -1,14 +1,12 @@
 FROM ubuntu:latest as build
-
-ARG VERSION=6.21.3
  
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt install -y build-essential cmake automake libtool autoconf wget	 
-RUN wget https://github.com/xmrig/xmrig/archive/refs/tags/v${VERSION}.tar.gz; \
-    tar xf v${VERSION}.tar.gz; \
-    mkdir -p xmrig-${VERSION}/build; \
-    cd xmrig-${VERSION}/scripts && ./build_deps.sh; \
-    cd xmrig-${VERSION}/build; \
+RUN wget https://github.com/xmrig/xmrig/archive/refs/tags/v6.21.3.tar.gz; \
+    tar xf v6.21.3.tar.gz; \
+    mkdir -p xmrig-6.21.3/build; \
+    cd xmrig-6.21.3/scripts && ./build_deps.sh; \
+    cd xmrig-6.21.3/build; \
     cmake .. -DXMRIG_DEPS=scripts/deps; \
     make -j $(nproc); \
     cp xmrig /usr/local/bin/xmrig
